@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
-import { Moon, Sun, Plus } from 'lucide-react';
+import React from 'react';
+import { Moon, Sun, Plus, Menu } from 'lucide-react';
 import { useTransactions } from '../../context/TransactionContext';
 
 export const Navbar = ({ onOpenModal }) => {
-    const { isDarkMode, toggleDarkMode, isAdmin, setIsAdmin } = useTransactions();
+    const { isDarkMode, toggleDarkMode, isAdmin, setIsAdmin, isSidebarOpen, setIsSidebarOpen } = useTransactions();
 
     return (
-        <header className="flex items-center justify-between px-8 py-4 bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 transition-colors">
-            <h2 className="text-2xl font-bold text-slate-800 dark:text-white">Dashboard</h2>
-            
+        <header className="flex items-center justify-between px-4 md:px-8 py-4 bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 transition-colors">
             <div className="flex items-center gap-4">
+                <button 
+                    onClick={() => setIsSidebarOpen(true)}
+                    className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-xl transition-colors"
+                >
+                    <Menu size={24} />
+                </button>
+                <h2 className="text-xl md:text-2xl font-bold text-slate-800 dark:text-white">Dashboard</h2>
+            </div>
+            
+            <div className="flex items-center gap-2 md:gap-4">
                 <button
                     onClick={() => setIsAdmin(!isAdmin)}
                     className={`px-4 py-2 rounded-xl font-medium transition-colors border ${

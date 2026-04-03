@@ -15,6 +15,9 @@ export const TransactionProvider = ({ children }) => {
     // Admin role state
     const [isAdmin, setIsAdmin] = useState(true);
 
+    // Sidebar mobile state
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
     useEffect(() => {
         // Apply dark mode to html class
         if (isDarkMode) {
@@ -81,7 +84,9 @@ export const TransactionProvider = ({ children }) => {
         isDarkMode,
         toggleDarkMode,
         isAdmin,
-        setIsAdmin
+        setIsAdmin,
+        isSidebarOpen,
+        setIsSidebarOpen
     };
 
     return (
