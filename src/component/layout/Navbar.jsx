@@ -1,0 +1,47 @@
+import React, { useState } from 'react';
+import { Moon, Sun, Plus } from 'lucide-react';
+import { useTransactions } from '../../context/TransactionContext';
+
+export const Navbar = ({ onOpenModal }) => {
+    const { isDarkMode, toggleDarkMode, isAdmin, setIsAdmin } = useTransactions();
+
+    return (
+        <header className="flex items-center justify-between px-8 py-4 bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 transition-colors">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white">Dashboard</h2>
+            
+            <div className="flex items-center gap-4">
+                <button
+                    onClick={() => setIsAdmin(!isAdmin)}
+                    className={`px-4 py-2 rounded-xl font-medium transition-colors border ${
+                        isAdmin 
+                            ? 'bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-400 dark:border-purple-800/30' 
+                            : 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800/30'
+                    }`}
+                >
+                    Role: {isAdmin ? 'Admin' : 'User'}
+                </button>
+
+                {isAdmin && (
+                    <button
+                        onClick={onOpenModal}
+                        className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl font-medium transition-colors"
+                    >
+                        <Plus size={18} />
+                        <span>Add Transaction</span>
+                    </button>
+                )}
+                
+                <button 
+                    onClick={toggleDarkMode}
+                    className="p-2 rounded-xl bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+                >
+                    {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+                
+                <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold cursor-pointer">
+                    US
+                </div>
+            </div>
+        </header>
+    );
+};
