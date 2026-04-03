@@ -41,7 +41,7 @@ export const TransactionList = () => {
             </div>
           </div>
           <span className={`font-bold ${t.type === 'income' ? 'text-emerald-500' : 'text-slate-800 dark:text-gray-200'}`}>
-            {t.type === 'income' ? '+' : '-'}${t.amount.toLocaleString()}
+            {t.type === 'income' ? '+' : '-'}₹{t.amount.toLocaleString()}
           </span>
         </div>
       ))}

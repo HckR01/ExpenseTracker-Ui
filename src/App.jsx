@@ -119,13 +119,13 @@ function App() {
                       <p className="text-[10px] text-cyan-700 dark:text-cyan-400 font-bold uppercase">
                         Total Income
                       </p>
-                      <p className="text-sm font-black text-slate-800 dark:text-white">${totalIncome.toLocaleString()}</p>
+                      <p className="text-sm font-black text-slate-800 dark:text-white">₹{totalIncome.toLocaleString()}</p>
                     </div>
                     <div className="bg-orange-50 dark:bg-orange-900/30 p-4 rounded-xl">
                       <p className="text-[10px] text-orange-700 dark:text-orange-400 font-bold uppercase">
                         Total Expenses
                       </p>
-                      <p className="text-sm font-black text-slate-800 dark:text-white">${totalExpense.toLocaleString()}</p>
+                      <p className="text-sm font-black text-slate-800 dark:text-white">₹{totalExpense.toLocaleString()}</p>
                     </div>
                   </div>
                 </div>

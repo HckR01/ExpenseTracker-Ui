@@ -9,7 +9,7 @@ export const StatCard = ({ title, amount, trend, icon, color, isPercentage }) =>
       </div>
     </div>
     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-      {isPercentage ? `${amount}%` : `$${amount.toLocaleString()}`}
+      {isPercentage ? `${amount}%` : `₹${amount.toLocaleString()}`}
     </h2>
     <div
       className={`text-sm ${trend >= 0 ? "text-emerald-500" : "text-orange-500"}`}
