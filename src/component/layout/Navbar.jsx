@@ -6,7 +6,7 @@ export const Navbar = ({ onOpenModal }) => {
     const { isDarkMode, toggleDarkMode, isAdmin, setIsAdmin, isSidebarOpen, setIsSidebarOpen } = useTransactions();
 
     return (
-        <header className="flex items-center justify-between px-4 md:px-8 py-4 bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 transition-colors">
+        <header className="flex items-center justify-between px-4 md:px-8 py-3 md:py-4 bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700 transition-colors">
             <div className="flex items-center gap-4">
                 <button 
                     onClick={() => setIsSidebarOpen(true)}
@@ -20,7 +20,7 @@ export const Navbar = ({ onOpenModal }) => {
             <div className="flex items-center gap-2 md:gap-4">
                 <button
                     onClick={() => setIsAdmin(!isAdmin)}
-                    className={`px-4 py-2 rounded-xl font-medium transition-colors border ${
+                    className={`px-2 py-1 md:px-4 md:py-2 rounded-lg md:rounded-xl text-xs md:text-base font-medium transition-colors border ${
                         isAdmin 
                             ? 'bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-400 dark:border-purple-800/30' 
                             : 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800/30'
@@ -32,21 +32,21 @@ export const Navbar = ({ onOpenModal }) => {
                 {isAdmin && (
                     <button
                         onClick={onOpenModal}
-                        className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl font-medium transition-colors"
+                        className="flex items-center gap-1 md:gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg md:rounded-xl text-sm md:text-base font-medium transition-colors"
                     >
                         <Plus size={18} />
-                        <span>Add Transaction</span>
+                        <span className="hidden sm:inline">Add</span>
                     </button>
                 )}
                 
                 <button 
                     onClick={toggleDarkMode}
-                    className="p-2 rounded-xl bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+                    className="p-1.5 md:p-2 rounded-xl bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
                 >
                     {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
                 </button>
                 
-                <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold cursor-pointer">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-emerald-500 flex items-center justify-center text-xs md:text-base text-white font-bold cursor-pointer">
                     US
                 </div>
             </div>

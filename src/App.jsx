@@ -31,7 +31,7 @@ function App() {
       <main className="flex-1 flex flex-col h-screen overflow-hidden">
         <Navbar onOpenModal={() => setIsModalOpen(true)} />
         
-        <div className="flex-1 overflow-y-auto p-8">
+        <div className="flex-1 overflow-y-auto p-4 md:p-8">
           {/* Top Row: 4 Stat Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <StatCard

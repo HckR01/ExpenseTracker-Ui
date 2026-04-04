@@ -5,7 +5,7 @@ export const MainOverview = ({ onOpenModal }) => {
   const { isAdmin } = useTransactions();
 
   return (
-    <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-3xl p-8 relative overflow-hidden border border-emerald-100 dark:border-emerald-800/30 mb-8 transition-colors">
+    <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-3xl p-6 md:p-8 relative overflow-hidden border border-emerald-100 dark:border-emerald-800/30 mb-8 transition-colors">
       <div className="relative z-10">
         <h1 className="text-3xl font-bold text-emerald-900 dark:text-emerald-400 mb-2">
           Finance Dashboard
@@ -14,12 +14,12 @@ export const MainOverview = ({ onOpenModal }) => {
           Track your income and expenses
         </p>
 
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             {isAdmin && (
               <button 
                 onClick={onOpenModal}
-                className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-lg shadow-emerald-200 dark:shadow-none"
+                className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 w-full sm:w-auto rounded-xl font-semibold flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-200 dark:shadow-none"
               >
                 <Plus size={20} /> Add Transaction
               </button>
