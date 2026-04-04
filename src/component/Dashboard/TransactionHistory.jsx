@@ -22,25 +22,41 @@ export const TransactionHistory = () => {
                     All Transactions
                 </h3>
                 
-                <div className="flex gap-2">
-                    <button 
-                        onClick={() => setFilter('all')}
-                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${filter === 'all' ? 'bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-800' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-slate-700 dark:text-gray-300'}`}
-                    >
-                        All
-                    </button>
-                    <button 
-                        onClick={() => setFilter('income')}
-                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${filter === 'income' ? 'bg-emerald-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-slate-700 dark:text-gray-300'}`}
-                    >
-                        Income
-                    </button>
-                    <button 
-                        onClick={() => setFilter('expense')}
-                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${filter === 'expense' ? 'bg-rose-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-slate-700 dark:text-gray-300'}`}
-                    >
-                        Expense
-                    </button>
+                <div className="flex gap-2 items-center">
+                    {/* Dropdown for small screens */}
+                    <div className="md:hidden">
+                        <select
+                            value={filter}
+                            onChange={(e) => setFilter(e.target.value)}
+                            className="bg-gray-100 text-gray-800 dark:bg-slate-700 dark:text-white text-sm rounded-lg border-none focus:ring-2 focus:ring-indigo-500 block w-full p-2"
+                        >
+                            <option value="all">All</option>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+
+                    {/* Buttons for medium+ screens */}
+                    <div className="hidden md:flex gap-2">
+                        <button 
+                            onClick={() => setFilter('all')}
+                            className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${filter === 'all' ? 'bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-800' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-slate-700 dark:text-gray-300'}`}
+                        >
+                            All
+                        </button>
+                        <button 
+                            onClick={() => setFilter('income')}
+                            className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${filter === 'income' ? 'bg-emerald-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-slate-700 dark:text-gray-300'}`}
+                        >
+                            Income
+                        </button>
+                        <button 
+                            onClick={() => setFilter('expense')}
+                            className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${filter === 'expense' ? 'bg-rose-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-slate-700 dark:text-gray-300'}`}
+                        >
+                            Expense
+                        </button>
+                    </div>
                 </div>
             </div>
 

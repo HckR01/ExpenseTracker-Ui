@@ -6,20 +6,20 @@ const TransactionContext = createContext();
 export const useTransactions = () => useContext(TransactionContext);
 
 export const TransactionProvider = ({ children }) => {
-    // We use the initial mock data
+    
     const [transactions, setTransactions] = useState(initialTransactions);
     
-    // Dark mode state - defaulting to true
+    
     const [isDarkMode, setIsDarkMode] = useState(true);
 
-    // Admin role state
+    
     const [isAdmin, setIsAdmin] = useState(true);
 
-    // Sidebar mobile state
+    
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
-        // Apply dark mode to html class
+        
         if (isDarkMode) {
             document.documentElement.classList.add('dark');
         } else {
@@ -28,7 +28,7 @@ export const TransactionProvider = ({ children }) => {
     }, [isDarkMode]);
 
     const toggleDarkMode = () => setIsDarkMode(prev => !prev);
-
+//add transaction here....................................................
     const addTransaction = (transaction) => {
         setTransactions(prev => [
             {
@@ -38,7 +38,7 @@ export const TransactionProvider = ({ children }) => {
                 timestamp: Date.now()
             },
             ...prev
-        ].sort((a, b) => b.timestamp - a.timestamp));
+        ].sort((a, b) => b.timestamp - a.timestamp));//sort here
     };
 
     const deleteTransaction = (id) => {
@@ -56,7 +56,7 @@ export const TransactionProvider = ({ children }) => {
 
     const totalBalance = totalIncome - totalExpense;
 
-    // Last 30 days totals
+    // Last 30 days total ..........................................
     const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
     
     const monthlyIncome = transactions
@@ -70,7 +70,7 @@ export const TransactionProvider = ({ children }) => {
     const savingsRate = totalIncome > 0 
         ? Math.round(((totalIncome - totalExpense) / totalIncome) * 100) 
         : 0;
-
+//distribute all over the app here...........................................
     const value = {
         transactions,
         addTransaction,

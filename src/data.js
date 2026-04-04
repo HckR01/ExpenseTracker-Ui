@@ -7,23 +7,23 @@ export const generateMockData = () => {
 
     const today = new Date();
     
-    // Generate transactions for the last 30 days
+    //transactions for the last 30 days
     for (let i = 0; i < 30; i++) {
         const date = new Date(today);
         date.setDate(date.getDate() - i);
         
-        // 1-3 transactions per day
+        
         const numTransactions = Math.floor(Math.random() * 3) + 1;
         
         for (let j = 0; j < numTransactions; j++) {
-            // 20% chance of income, 80% chance of expense
+            
             const isIncome = Math.random() < 0.2;
             const type = isIncome ? 'income' : 'expense';
             
             const categoryList = categories[type];
             const category = categoryList[Math.floor(Math.random() * categoryList.length)];
             
-            // Income amounts between 500 and 3000, Expense between 10 and 200
+           
             const amount = isIncome 
                 ? Math.floor(Math.random() * 2500) + 500
                 : Math.floor(Math.random() * 190) + 10;
@@ -49,7 +49,7 @@ export const generateMockData = () => {
                 name: name,
                 category: category,
                 amount: amount,
-                // Format date as M/D/YYYY to match current UI format
+               
                 date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
                 type: type,
                 timestamp: date.getTime()
@@ -57,7 +57,7 @@ export const generateMockData = () => {
         }
     }
     
-    // Sort transactions by date descending (newest first)
+    
     return transactions.sort((a, b) => b.timestamp - a.timestamp);
 };
 

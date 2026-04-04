@@ -25,6 +25,7 @@ function App() {
 
   return (
     <div className="flex bg-[#F8FAFC] dark:bg-slate-900 min-h-screen font-sans text-slate-900 dark:text-slate-100 transition-colors">
+      {/* side bar....................................................................... */}
       <Sidebar />
 
       <main className="flex-1 flex flex-col h-screen overflow-hidden">
