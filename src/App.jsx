@@ -15,13 +15,13 @@ import { LoadingScreen } from "./component/UI/LoadingScreen";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { 
-    totalIncome, 
-    totalExpense, 
-    totalBalance, 
-    monthlyIncome, 
-    monthlyExpense, 
-    savingsRate 
+  const {
+    totalIncome,
+    totalExpense,
+    totalBalance,
+    monthlyIncome,
+    monthlyExpense,
+    savingsRate,
   } = useTransactions();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -45,8 +45,8 @@ function App() {
 
       <main className="flex-1 flex flex-col h-screen overflow-hidden">
         <Navbar onOpenModal={() => setIsModalOpen(true)} />
-        
-        <div className="flex-1 overflow-y-auto p-4 md:p-8">
+
+        <div id="dashboard-top" className="flex-1 overflow-y-auto p-4 md:p-8">
           {/* Top Row: 4 Stat Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <StatCard
@@ -100,14 +100,22 @@ function App() {
                   <GaugeChart
                     title="Spent"
                     value={monthlyExpense}
-                    percentage={monthlyIncome > 0 ? (monthlyExpense/monthlyIncome)*100 : 0}
+                    percentage={
+                      monthlyIncome > 0
+                        ? (monthlyExpense / monthlyIncome) * 100
+                        : 0
+                    }
                     color="#f97316"
                   />
                 </Card>
                 <Card>
                   <GaugeChart
                     title="Savings"
-                    value={monthlyIncome - monthlyExpense > 0 ? monthlyIncome - monthlyExpense : 0}
+                    value={
+                      monthlyIncome - monthlyExpense > 0
+                        ? monthlyIncome - monthlyExpense
+                        : 0
+                    }
                     percentage={savingsRate}
                     color="#06b6d4"
                   />
@@ -128,20 +136,25 @@ function App() {
 
                 <div className="mt-8 pt-8 border-t border-gray-100 dark:border-slate-700">
                   <h4 className="flex items-center gap-2 font-bold text-slate-700 dark:text-slate-200 mb-4">
-                    <span className="text-blue-500">🔵</span> Spending by Category
+                    <span className="text-blue-500">🔵</span> Spending by
+                    Category
                   </h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-cyan-50 dark:bg-cyan-900/30 p-4 rounded-xl">
                       <p className="text-[10px] text-cyan-700 dark:text-cyan-400 font-bold uppercase">
                         Total Income
                       </p>
-                      <p className="text-sm font-black text-slate-800 dark:text-white">₹{totalIncome.toLocaleString()}</p>
+                      <p className="text-sm font-black text-slate-800 dark:text-white">
+                        ₹{totalIncome.toLocaleString()}
+                      </p>
                     </div>
                     <div className="bg-orange-50 dark:bg-orange-900/30 p-4 rounded-xl">
                       <p className="text-[10px] text-orange-700 dark:text-orange-400 font-bold uppercase">
                         Total Expenses
                       </p>
-                      <p className="text-sm font-black text-slate-800 dark:text-white">₹{totalExpense.toLocaleString()}</p>
+                      <p className="text-sm font-black text-slate-800 dark:text-white">
+                        ₹{totalExpense.toLocaleString()}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -151,9 +164,9 @@ function App() {
         </div>
       </main>
 
-      <AddTransactionModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <AddTransactionModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
     </div>
   );

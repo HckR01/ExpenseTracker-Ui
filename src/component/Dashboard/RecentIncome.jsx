@@ -5,11 +5,14 @@ import { useTransactions } from "../../context/TransactionContext";
 export const RecentIncome = () => {
   const { transactions } = useTransactions();
   const incomeItems = transactions
-    .filter(t => t.type === 'income')
+    .filter((t) => t.type === "income")
     .slice(0, 5);
 
   return (
-    <Card className="mb-6 border-none shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none dark:bg-slate-800">
+    <Card
+      id="recent-income"
+      className="mb-6 border-none shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none dark:bg-slate-800"
+    >
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-2">
           <TrendingUp className="text-emerald-500" size={20} />
@@ -27,34 +30,44 @@ export const RecentIncome = () => {
 
       <div className="space-y-3">
         {incomeItems.length === 0 ? (
-            <p className="text-center text-gray-400 py-4">No recent income</p>
+          <p className="text-center text-gray-400 py-4">No recent income</p>
         ) : (
-            incomeItems.map((item, idx) => (
+          incomeItems.map((item, idx) => (
             <div
-                key={idx}
-                className="flex items-center justify-between p-4 bg-emerald-50/30 dark:bg-emerald-900/10 rounded-2xl border border-emerald-50/50 dark:border-emerald-800/30 transition-colors"
+              key={idx}
+              className="flex items-center justify-between p-4 bg-emerald-50/30 dark:bg-emerald-900/10 rounded-2xl border border-emerald-50/50 dark:border-emerald-800/30 transition-colors"
             >
-                <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4">
                 <div className="bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 p-3 rounded-xl">
-                    {item.category === "Freelance" ? (
+                  {item.category === "Freelance" ? (
                     <CreditCard size={20} />
-                    ) : (
+                  ) : (
                     <Banknote size={20} />
-                    )}
+                  )}
                 </div>
                 <div>
-                    <p className="font-bold text-gray-800 dark:text-gray-200">{item.name}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{item.category}</p>
+                  <p className="font-bold text-gray-800 dark:text-gray-200">
+                    {item.name}
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    {item.category}
+                  </p>
                 </div>
-                </div>
-                <div className="text-right">
+              </div>
+              <div className="text-right">
                 <p className="font-bold text-emerald-600 dark:text-emerald-400">
-                    +₹{item.amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                  +₹
+                  {item.amount.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
                 </p>
-                <p className="text-[10px] text-gray-400 dark:text-gray-500">{item.date}</p>
-                </div>
+                <p className="text-[10px] text-gray-400 dark:text-gray-500">
+                  {item.date}
+                </p>
+              </div>
             </div>
-            ))
+          ))
         )}
       </div>
     </Card>
