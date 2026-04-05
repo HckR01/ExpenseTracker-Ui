@@ -29,7 +29,7 @@ export const GaugeChart = ({ title, value, percentage, color }) => {
           <span className="text-2xl font-bold text-gray-800">
             ₹{value.toLocaleString()}
           </span>
-          <span className="text-sm text-gray-400">{percentage}%</span>
+          <span className="text-sm text-gray-400">{Number(percentage).toFixed(2)}%</span>
         </div>
       </div>
       <p className="text-xs text-gray-400 mt-2">This Month data</p>

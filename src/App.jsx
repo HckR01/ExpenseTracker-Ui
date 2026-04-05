@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Sidebar } from "./component/layout/Sidebar";
 import { Navbar } from "./component/layout/Navbar";
 import { StatCard } from "./component/Dashboard/StatCard";
@@ -11,6 +11,7 @@ import { RecentExpenses } from "./component/Dashboard/RecentExpenses";
 import { Card } from "./component/UI/Card";
 import { AddTransactionModal } from "./component/UI/AddTransactionModal";
 import { useTransactions } from "./context/TransactionContext";
+import { LoadingScreen } from "./component/UI/LoadingScreen";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,6 +23,20 @@ function App() {
     monthlyExpense, 
     savingsRate 
   } = useTransactions();
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading/fetching time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="flex bg-[#F8FAFC] dark:bg-slate-900 min-h-screen font-sans text-slate-900 dark:text-slate-100 transition-colors">
