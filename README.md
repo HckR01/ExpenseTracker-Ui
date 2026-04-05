@@ -1,4 +1,4 @@
-💰 Expense Tracker Dashboard
+<h1>💰 Expense Tracker Dashboard</h1>
 A modern, responsive financial dashboard built to help users track transactions, visualize spending patterns, and manage roles. This project was developed as a technical assignment, focusing on clean UI/UX and efficient state management.
 
 🔗 Live Demo: expense-tracker-ui-xi.vercel.app
