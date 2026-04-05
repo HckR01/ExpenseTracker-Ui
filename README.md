@@ -1,16 +1,45 @@
-# React + Vite
+💰 Expense Tracker Dashboard
+A modern, responsive financial dashboard built to help users track transactions, visualize spending patterns, and manage roles. This project was developed as a technical assignment, focusing on clean UI/UX and efficient state management.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 Live Demo: expense-tracker-ui-xi.vercel.app
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Financial Overview
+   Summary Cards: Real-time calculation of Total Balance, Income, and Expenses.
 
-## React Compiler
+Data Visualization: \* Trend Analysis: Time-based line/area charts showing balance flow using Recharts.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Category Breakdown: Donut/Pie charts to visualize where money is being spent.
 
-## Expanding the ESLint configuration
+2. Transaction Management
+   Detailed List: View Date, Amount, Category, and Type (Income/Expense).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Search & Filter: Quickly find transactions by name or filter by category/type.
+
+Empty States: Graceful handling of "No Data Found" scenarios.
+
+3. Role-Based UI (RBAC Simulation)
+   Dynamic Access Control: Toggle between Admin and Viewer roles.
+
+Admin: Full access to add, edit, or delete transactions.
+
+Viewer: Read-only access—action buttons are contextually hidden or disabled to ensure data integrity.
+
+4. Smart Insights
+   Automatic identification of the Highest Spending Category.
+
+Monthly comparison logic to track financial growth or overspending.
+
+🛠️ Tech Stack
+Framework: React 19 (Functional Components, Hooks)
+
+Build Tool: Vite (For ultra-fast development and optimized bundling)
+
+Styling: Tailwind CSS 4.0 (Utility-first CSS for a custom, responsive design)
+
+Icons: Lucide React (Clean, consistent SVG icons)
+
+Charts: Recharts (Composable charting library for React)
+
+Deployment: Vercel
